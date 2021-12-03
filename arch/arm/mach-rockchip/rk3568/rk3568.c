@@ -941,6 +941,9 @@ int arch_cpu_init(void)
 #endif
 #endif
 
+	/* Set i2c0 iomux */
+	writel(0x07700110, 0xfdc20008);
+
 	return 0;
 }
 
