@@ -73,6 +73,8 @@
 
 #define CONFIG_SYS_NONCACHED_MEMORY	(1 << 20)	/* 1 MiB */
 
+#define CONFIG_MISC_INIT_R
+
 #ifndef CONFIG_SPL_BUILD
 /* usb mass storage */
 #define CONFIG_USB_FUNCTION_MASS_STORAGE
