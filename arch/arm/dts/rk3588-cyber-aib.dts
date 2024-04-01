@@ -49,15 +49,45 @@
 			press-threshold-microvolt = <1750>;
 		};
 	};
+
+	pcie_enable0: pcie-enable0 {
+		u-boot,dm-pre-reloc;
+		compatible = "regulator-fixed";
+		regulator-name = "vcc5v0_host";
+		regulator-boot-on;
+		regulator-always-on;
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		enable-active-high;
+		gpio = <&gpio3 RK_PC6 GPIO_ACTIVE_LOW>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pcie_down_en>;
+		vin-supply = <&vcc5v0_sys>;
+	};
+
+	pcie_enable1: pcie-enable1 {
+		u-boot,dm-pre-reloc;
+		compatible = "regulator-fixed";
+		regulator-name = "vcc5v0_host";
+		regulator-boot-on;
+		regulator-always-on;
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		enable-active-high;
+		gpio = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
+		pinctrl-names = "default";
+		pinctrl-0 = <&pcie_up_en>;
+		vin-supply = <&vcc5v0_sys>;
+	};
 };
 
 
 &pinctrl {
 	pcie {
 
-		pcie_none_en: pcie-none-en {
+		pcie_down_en: pcie-down-en {
 			u-boot,dm-pre-reloc;
-			rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
+			rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_down>;
 		};
 
 		pcie_up_en: pcie-up-en {
