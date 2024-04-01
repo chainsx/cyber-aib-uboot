@@ -49,30 +49,20 @@
 			press-threshold-microvolt = <1750>;
 		};
 	};
+};
 
-	wwan_disable0: wwan-disable0 {
-		u-boot,dm-pre-reloc;
-		compatible = "regulator-fixed";
-		regulator-name = "wwan-disable0";
-		regulator-min-microvolt = <3300000>;
-		regulator-max-microvolt = <3300000>;
-		enable-active-high;
-		gpio = <&gpio3 RK_PC6 GPIO_ACTIVE_LOW>;
-		regulator-boot-on;
-		regulator-always-on;
-		vin-supply = <&vcc5v0_sys>;
-	};
 
-	wwan_disable1: wwan-disable1 {
-		u-boot,dm-pre-reloc;
-		compatible = "regulator-fixed";
-		regulator-name = "wwan-disable1";
-		regulator-min-microvolt = <3300000>;
-		regulator-max-microvolt = <3300000>;
-		enable-active-high;
-		gpio = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
-		regulator-boot-on;
-		regulator-always-on;
-		vin-supply = <&vcc5v0_sys>;
+&pinctrl {
+	pcie {
+
+		pcie_none_en: pcie-none-en {
+			u-boot,dm-pre-reloc;
+			rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_none>;
+		};
+
+		pcie_up_en: pcie-up-en {
+			u-boot,dm-pre-reloc;
+			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
+		};
 	};
 };
