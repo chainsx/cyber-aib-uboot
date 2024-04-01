@@ -61,6 +61,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += \
 	rk3588s-roc-pc.dtb \
 	rk3588s-khadas-edge2.dtb \
 	rk3588-rock-5b.dtb \
+	rk3588-cyber-aib.dtb \
 	rv1108-evb.dtb
 dtb-$(CONFIG_ARCH_MESON) += \
 	meson-gxbb-odroidc2.dtb
