@@ -74,7 +74,7 @@
 		regulator-min-microvolt = <3300000>;
 		regulator-max-microvolt = <3300000>;
 		enable-active-high;
-		gpio = <&gpio0 RK_PB7 GPIO_ACTIVE_HIGH>;
+		gpio = <&gpio0 RK_PB0 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinconf_1>;
 		vin-supply = <&vcc5v0_sys>;
@@ -89,7 +89,7 @@
 		regulator-min-microvolt = <3300000>;
 		regulator-max-microvolt = <3300000>;
 		enable-active-high;
-		gpio = <&gpio0 RK_PB0 GPIO_ACTIVE_HIGH>;
+		gpio = <&gpio4 RK_PB0 GPIO_ACTIVE_HIGH>;
 		pinctrl-names = "default";
 		pinctrl-0 = <&pinconf_2>;
 		vin-supply = <&vcc5v0_sys>;
@@ -121,12 +121,12 @@
 
 		pinconf_1: pinconf-1 {
 			u-boot,dm-pre-reloc;
-			rockchip,pins = <0 RK_PB7 RK_FUNC_GPIO &pcfg_pull_up>;
+			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 
 		pinconf_2: pinconf-2 {
 			u-boot,dm-pre-reloc;
-			rockchip,pins = <0 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
+			rockchip,pins = <4 RK_PB0 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 
 		pinconf_3: pinconf-3 {
