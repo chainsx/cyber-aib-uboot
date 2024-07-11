@@ -37,7 +37,7 @@
 	pcie_power_en: pcie-power-en-regulator {
 		u-boot,dm-pre-reloc;
 		compatible = "regulator-fixed";
-        regulator-name = "pcie_power_en";
+        	regulator-name = "pcie_power_en";
 		enable-active-high;
 		gpio = <&gpio0 RK_PC6 GPIO_ACTIVE_HIGH>;
 		pinctrl-0 = <&pcie_power_h>;
@@ -46,10 +46,22 @@
 		regulator-always-on;
 	};
 
+	pcie_preset_low: pcie-preset-low-regulator {
+		u-boot,dm-pre-reloc;
+		compatible = "regulator-fixed";
+        	regulator-name = "pcie_preset_low";
+		enable-active-low;
+		gpio = <&gpio3 RK_PC6 GPIO_ACTIVE_LOW>;
+		pinctrl-0 = <&pcie_preset_l>;
+		pinctrl-names = "default";
+		regulator-boot-on;
+		regulator-always-on;
+	};
+
 	wwan_5g_power_en: wwan-5g-power-en {
 		u-boot,dm-pre-reloc;
 		compatible = "regulator-fixed";
-        regulator-name = "wwan_5g_power_en";
+        	regulator-name = "wwan_5g_power_en";
 		enable-active-high;
 		gpio = <&gpio0 RK_PB0 GPIO_ACTIVE_HIGH>;
 		pinctrl-0 = <&wwan_5g_power_h>;
@@ -100,6 +112,10 @@
 		pcie_power_h: pcie-power-h {
 			u-boot,dm-pre-reloc;
 			rockchip,pins = <0 RK_PC6 RK_FUNC_GPIO &pcfg_pull_up>;
+		};
+		pcie_preset_l: pcie-preset-l {
+			u-boot,dm-pre-reloc;
+			rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_down>;
 		};
 	};
 
