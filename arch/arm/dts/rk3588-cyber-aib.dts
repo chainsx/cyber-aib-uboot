@@ -58,6 +58,18 @@
 		regulator-always-on;
 	};
 
+	pcie_wifi_enable: pcie-wifi-enable-regulator {
+		u-boot,dm-pre-reloc;
+		compatible = "regulator-fixed";
+        	regulator-name = "pcie_wifi_enable";
+		enable-active-low;
+		gpio = <&gpio4 RK_PB5 GPIO_ACTIVE_HIGH>;
+		pinctrl-0 = <&pcie_wifi_h>;
+		pinctrl-names = "default";
+		regulator-boot-on;
+		regulator-always-on;
+	};
+
 	wwan_5g_power_en: wwan-5g-power-en {
 		u-boot,dm-pre-reloc;
 		compatible = "regulator-fixed";
@@ -116,6 +128,10 @@
 		pcie_preset_l: pcie-preset-l {
 			u-boot,dm-pre-reloc;
 			rockchip,pins = <3 RK_PC6 RK_FUNC_GPIO &pcfg_pull_down>;
+		};
+		pcie_wifi_h: pcie-wifi-h {
+			u-boot,dm-pre-reloc;
+			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_up>;
 		};
 	};
 
